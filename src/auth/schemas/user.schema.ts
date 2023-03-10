@@ -4,7 +4,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
   timestamps: true,
 })
 export class User {
-  @Prop({ unique: [true, 'Duplicate user mail or phone entered'] })
+  @Prop({ unique: [true, 'Duplicate user email or phone entered'] })
   phoneOrEmail: string;
 
   @Prop()
