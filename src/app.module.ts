@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { PostsModule } from './posts/posts.module';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { PostsModule } from './posts/posts.module';
     MongooseModule.forRoot(process.env.DB_CONNEXION),
     AuthModule,
     PostsModule,
+    CloudinaryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
