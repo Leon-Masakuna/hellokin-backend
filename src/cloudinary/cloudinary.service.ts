@@ -1,26 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCloudinaryDto } from './dto/create-cloudinary.dto';
-import { UpdateCloudinaryDto } from './dto/update-cloudinary.dto';
+import { UploadApiErrorResponse, UploadApiResponse, v2 } from 'cloudinary';
+import toStream = require('buffer-to-stream');
 
 @Injectable()
 export class CloudinaryService {
-  create(createCloudinaryDto: CreateCloudinaryDto) {
-    return 'This action adds a new cloudinary';
-  }
-
-  findAll() {
-    return `This action returns all cloudinary`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} cloudinary`;
-  }
-
-  update(id: number, updateCloudinaryDto: UpdateCloudinaryDto) {
-    return `This action updates a #${id} cloudinary`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} cloudinary`;
-  }
+  // async uploadImage(
+  //   file: Express.Multer.File,
+  // ): Promise<UploadApiResponse | UploadApiErrorResponse> {
+  //   return new Promise((resolve, reject) => {
+  //     const upload = v2.uploader.upload_stream((error, result) => {
+  //       if (error) return reject(error);
+  //       resolve(result);
+  //     });
+  //     toStream(file.buffer).pipe(upload);
+  //   });
+  // }
 }
