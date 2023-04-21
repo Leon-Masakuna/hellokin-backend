@@ -1,10 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 export type UserDocument = User & Document;
+import { Document } from 'mongoose';
 
 @Schema({
   timestamps: true,
 })
-export class User {
+export class User extends Document {
   @Prop({ unique: [true, 'Duplicate user email or phone entered'] })
   phoneOrEmail: string;
 

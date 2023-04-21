@@ -4,13 +4,15 @@ import { UpdatePostDto } from './dto/update-post.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Post, PostDocument } from '../model/post.schema';
 import { Model } from 'mongoose';
+import { User } from '../model/user.schema';
 
 @Injectable()
 export class PostsService {
   constructor(@InjectModel(Post.name) private postModel: Model<PostDocument>) {}
 
-  async create(createPostDto: CreatePostDto): Promise<Post> {
-    return new this.postModel(createPostDto).save();
+  async create(createPostDto: CreatePostDto, user: User): Promise<Post> {
+    const data = Object.assign(createPostDto, { user: user._id });
+    return new this.postModel(data).save();
   }
 
   async findAll() {
