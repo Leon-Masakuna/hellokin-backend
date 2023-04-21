@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import { Post, PostDocument } from './schemas/post.schema';
+import { Post, PostDocument } from '../model/post.schema';
 import { Model } from 'mongoose';
 
 @Injectable()
@@ -21,6 +21,7 @@ export class PostsService {
     return `This action returns a #${id} post`;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   update(id: number, updatePostDto: UpdatePostDto) {
     return `This action updates a #${id} post`;
   }
