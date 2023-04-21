@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
@@ -20,8 +21,10 @@ export class PostsController {
 
   @Post()
   @UseGuards(AuthGuard())
-  create(@Body() createPostDto: CreatePostDto): Promise<Posts> {
-    return this.postsService.create(createPostDto);
+  create(@Body() createPostDto: CreatePostDto, @Req() req): Promise<Posts> {
+    console.log(req.user);
+
+    return this.postsService.create(createPostDto, req.user);
   }
 
   @Get()
