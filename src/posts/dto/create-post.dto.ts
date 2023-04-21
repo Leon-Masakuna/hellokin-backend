@@ -3,10 +3,7 @@ import { IsNotEmpty, IsString } from 'class-validator';
 export class CreatePostDto {
   @IsNotEmpty()
   @IsString()
-  readonly userName: string;
-
-  @IsString()
-  readonly userProfile: string;
+  readonly user: string;
 
   @IsString()
   readonly postContent: string;
