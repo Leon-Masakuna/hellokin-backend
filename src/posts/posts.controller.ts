@@ -23,7 +23,6 @@ export class PostsController {
   @UseGuards(AuthGuard())
   create(@Body() createPostDto: CreatePostDto, @Req() req): Promise<Posts> {
     console.log(req.user);
-
     return this.postsService.create(createPostDto, req.user);
   }
 
@@ -34,16 +33,19 @@ export class PostsController {
   }
 
   @Get(':id')
+  @UseGuards(AuthGuard())
   findOne(@Param('id') id: string) {
     return this.postsService.findOne(+id);
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard())
   update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
     return this.postsService.update(+id, updatePostDto);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard())
   remove(@Param('id') id: string) {
     return this.postsService.remove(+id);
   }
