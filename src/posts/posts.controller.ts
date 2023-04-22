@@ -28,6 +28,7 @@ export class PostsController {
   }
 
   @Get()
+  @UseGuards(AuthGuard())
   findAll() {
     return this.postsService.findAll();
   }
